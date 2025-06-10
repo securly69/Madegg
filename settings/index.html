@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..400,0..1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+    <script src="/auth.js"></script>
+    <title>Home</title>
+    <link rel="icon" type="image/x-icon" href="https://t3.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://gointerstellar.app&size=256">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <style>
+        .navbar {
+      list-style-type: none;
+      padding-left: 0;
+      padding-right: 0;
+      padding-top: 5px;
+      margin: 0;
+      direction: ltr;
+      width: 3.5em;
+      height: 100vh;
+      background-color: rgb(22, 22, 22);
+      position: fixed;
+      left: 0;
+      top: 0;
+      text-align: center;
+      box-shadow: 1px 0 1px 0 rgba(66, 66, 66, 0.86);
+      z-index: 2147483640;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .navbar li {
+      width: 100%;
+      padding: 8px 0;
+      display: flex;
+      justify-content: center;
+    }
+
+    .navbar span {
+      padding: 8px !important;
+      display: inline-block;
+      color: #fff;
+      font-size: 24px !important;
+      margin-top: 0px !important;
+      margin-bottom: 0px !important;
+    }
+
+    .navbar hr {
+      width: 60%;
+      height: 1px;
+      background: rgba(160, 160, 160, 0.274);
+      border: none;
+      margin: 8px auto;
+    }
+
+    .navbar span:hover,
+    .navbar div:not(.navHover):hover {
+      background-color: rgba(0, 60, 255, 0.13);
+      border-radius: 7px;
+      transition: 0.12s all ease-in-out;
+      cursor: pointer;
+    }
+
+    .navbar span,
+    .navbar div {
+      transition: 0.12s;
+    }
+    </style>
+    <body>
+        <ul class="navbar">
+            <li><a href="/"><span class="material-symbols-outlined">cottage</span></a></li>
+            <li><a href="/madflix"><span class="material-symbols-outlined">movie</span></a></li>
+            <li><a href="/browser"><span class="material-symbols-outlined">explore</span></a></li>
+            <li><a href="/madeggai"><span class="material-symbols-outlined">smart_toy</span></a></li>
+            <li><hr></li>
+            <li><a href="/settings"><span class="material-symbols-outlined">settings</span></a></li>
+          </ul>
+        <iframe style="position:absolute; top:0; left: 56px;
+    width: calc(100% - 56px); height:100%; border: none; overflow: hidden" src="http://localhost:8080/settings"></iframe>
+    </body>
+</html>

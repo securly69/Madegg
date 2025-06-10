@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Home</title>
+  <link rel="icon" type="image/x-icon" href="https://t3.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://gointerstellar.app&size=256">
+  <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500;700&display=swap" rel="stylesheet">
+  <script src="/auth.js"></script>
+  <style>
+      .navbar {
+           list-style-type: none;
+           padding-left: 0;
+           padding-right: 0;
+           padding-top: 5px;
+           margin: 0;
+           direction: ltr;
+           width: 3.5em;
+           height: 100vh;
+           background-color: rgb(22, 22, 22);
+           position: fixed;
+           left: 0;
+           top: 0;
+           text-align: center;
+           box-shadow: 1px 0 1px 0 rgba(66, 66, 66, 0.86);
+           z-index: 2147483640;
+           display: flex;
+           flex-direction: column;
+           align-items: center;
+       }
+      
+       .navbar li {
+           width: 100%;
+           padding: 8px 0;
+           display: flex;
+           justify-content: center;
+       }
+      
+       .navbar span {
+           padding: 8px !important;
+           display: inline-block;
+           color: #fff;
+           font-size: 24px !important;
+           margin-top: 0px !important;
+           margin-bottom: 0px !important;
+       }
+      
+       .navbar hr {
+           width: 60%;
+           height: 1px;
+           background: rgba(160, 160, 160, 0.274);
+           border: none;
+           margin: 8px auto;
+       }
+      
+       .navbar span:hover,
+       .navbar div:not(.navHover):hover {
+           background-color: rgba(0, 60, 255, 0.13);
+           border-radius: 7px;
+           transition: 0.12s all ease-in-out;
+           cursor: pointer;
+       }
+      
+       .navbar span,Add commentMore actions
+       .navbar div {
+           transition: 0.12s;
+       }
+    
+    label {
+      margin-top: 5px;
+      color: black;
+    }
+        
+    label:first-child {
+      margin-top: 10px !important;
+    }
+    
+    * {
+      padding-right: 20px;
+    }
+    
+    h3 {
+      color: black;
+    }
+    
+    :root {
+      --primary: #4285F4;
+      --secondary: #34A853;
+      --background: #121212;
+      --surface: #1E1E1E;
+      --surface-light: #2d2d2d;
+      --on-background: #FFFFFF;
+      --on-surface: #E1E1E1;
+      --error: #EA4335;
+    }
+    * { box-sizing:border-box; margin:0; padding:0 }
+    html,body{height:100%;width:100%;font-family:"Ubuntu",sans-serif;background:var(--background);color:var(--on-background)}
+    .container{max-width:1200px;margin:0 auto;padding:0 20px;overflow:auto;height:100%}
+    header{background:var(--surface);padding:20px 0;position:sticky;top:0;z-index:100}
+    .logo-container{display:flex;align-items:center;justify-content:center;margin-bottom:10px}
+    .logo{height:40px}
+    .search-container{display:flex;justify-content:center;align-items:center;gap:15px;flex-wrap:wrap}
+    .search-bar{flex:1;min-width:250px;max-width:500px;padding:12px 20px;border:2px solid var(--surface-light);border-radius:30px;background:var(--surface);color:var(--on-background);font-size:16px;transition:0.3s}
+    .search-bar:focus{border-color:var(--primary);box-shadow:0 0 0 3px rgba(66,133,244,0.2)}
+    .search-button{padding:12px 25px;border:none;background:var(--primary);color:#fff;border-radius:30px;cursor:pointer;font-size:16px;font-weight:500;transition:0.3s}
+    .search-button:hover{background:#3367D6;transform:translateY(-2px)}
+    .tabs{display:flex;justify-content:center;gap:10px;margin:25px 0;flex-wrap:wrap}
+    .tab{padding:10px 25px;background:var(--surface);border-radius:30px;cursor:pointer;font-weight:500;transition:0.3s;border:2px solid transparent}
+    .tab:hover{background:var(--surface-light)}
+    .tab.active{background:var(--primary);color:#fff;font-weight:700}
+    .section-title{font-size:24px;margin:30px 0 10px;color:var(--primary)}
+    .media-container{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:25px;padding-bottom:20px}
+    .media-card{position:relative;background:var(--surface);border-radius:12px;overflow:hidden;cursor:pointer;box-shadow:0 4px 8px rgba(0,0,0,0.1);transition:0.3s;display:flex;flex-direction:column;height:100%}
+    .media-card:hover{transform:translateY(-5px);box-shadow:0 10px 20px rgba(0,0,0,0.2)}
+    .media-poster-container{position:relative;width:100%;height:300px;flex-shrink:0}
+    .media-poster{width:100%;height:100%;object-fit:cover;border-bottom:1px solid rgba(255,255,255,0.1)}
+    .media-info{padding:15px;flex-grow:1;display:flex;flex-direction:column}
+    .media-title{font-weight:500;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin-bottom:auto}
+    .media-meta{display:flex;align-items:center;justify-content:space-between;margin-top:8px;font-size:14px;color:var(--on-surface)}
+    .media-meta .year{flex:1}
+    .media-meta .label{background:var(--primary);color:#fff;padding:3px 8px;border-radius:12px;font-size:12px;font-weight:700;text-transform:uppercase;margin-right:6px}
+    .media-meta .rating{background:var(--secondary);color:#fff;padding:3px 8px;border-radius:12px;font-size:12px;font-weight:700}
+    .loading{text-align:center;padding:50px;font-size:18px}
+    .action-container{background:var(--surface);border-radius:12px;padding:25px;margin:30px auto;max-width:800px;text-align:center}
+    .action-title{font-size:22px;margin-bottom:20px;color:var(--primary)}
+    .action-button{padding:12px 25px;background:var(--primary);color:#fff;border:none;border-radius:8px;cursor:pointer;font-weight:500;font-size:16px;margin:5px;transition:0.3s}
+    .action-button:hover{background:var(--primary-dark);transform:translateY(-2px)}
+    .error-message{color:var(--error);text-align:center;padding:10px;font-size:14px}
+    .loading-state{width:100%;height:100%;display:flex;align-items:center;justify-content:center;background:var(--surface)}
+    .back-button{background:none;border:none;color:var(--primary);font-size:16px;cursor:pointer;margin-bottom:20px}
+  </style>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..400,0..1">
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+</head>
+<body>
+  <ul class="navbar">
+        <li><a href="/"><span class="material-symbols-outlined">cottage</span></a></li>
+        <li><a href="/madflix"><span class="material-symbols-outlined">movie</span></a></li>
+        <li><a href="/browser"><span class="material-symbols-outlined">explore</span></a></li>
+        <li><a href="/madeggai"><span class="material-symbols-outlined">smart_toy</span></a></li>
+        <li>
+            <hr>
+        </li>
+        <li><a href="/settings"><span class="material-symbols-outlined">settings</span></a></li>
+    </ul>
+  <header>
+    <div class="container">
+      <div class="logo-container">
+        <img src="data:image/jpeg;base64,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" alt="Logo" class="logo">
+      </div>
+      <div class="search-container">
+        <input id="search-input" class="search-bar" placeholder="Search movies or TV show…" onkeypress="if(event.key==='Enter') search()">
+        <button class="search-button" onclick="search()">Search</button>
+      </div>
+    </div>
+  </header>
+  <main class="container">
+    <div class="tabs">
+      <div class="tab active" id="all-tab" onclick="setActiveTab('all')">All</div>
+      <div class="tab" id="movie-tab" onclick="setActiveTab('movie')">Movies</div>
+      <div class="tab" id="tv-tab" onclick="setActiveTab('tv')">TV Show</div>
+    </div>
+    <div id="results"><div class="loading">Loading home…</div></div>
+  </main>
+  <script>
+    const base='https://api.themoviedb.org/3/';
+    const key='ae4bd1b6fce2a5648671bfc171d15ba4';
+    let activeTab='all', homeRec=[], homeTrend=[], trailerCache={};
+    let currentHoverCard = null;
+
+    document.addEventListener('DOMContentLoaded', loadHome);
+
+    function setActiveTab(tab){ activeTab=tab; document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active')); document.getElementById(`${tab}-tab`).classList.add('active'); if(!document.getElementById('search-input').value.trim()) renderHome(); else search(); }
+    function resultsHTML(html){ document.getElementById('results').innerHTML=html }
+    function escapeHtml(s){ return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#039;') }
+
+    async function loadHome(){ resultsHTML('<div class="loading">Loading home…</div>'); try{ const [recMovies,recTV,trendRes]=await Promise.all([fetch(`${base}movie/popular?api_key=${key}`), fetch(`${base}tv/popular?api_key=${key}`), fetch(`${base}trending/all/day?api_key=${key}`)]); const movies=await recMovies.json(); const tv=await recTV.json(); let tr=(await trendRes.json()).results; homeRec=[...movies.results.slice(0,5).map(i=>({...i,media_type:'movie'})),...tv.results.slice(0,5).map(i=>({...i,media_type:'tv'}))].sort(()=>Math.random()-0.5); homeTrend=tr.map(i=>({...i,media_type:i.media_type||(i.title?'movie':'tv')})); renderHome(); }catch{ resultsHTML('<div class="loading">Failed to load home</div>'); }}
+
+    function renderHome(){ let html=''; const rec=activeTab==='all'?homeRec:homeRec.filter(i=>i.media_type===activeTab); const tr=activeTab==='all'?homeTrend:homeTrend.filter(i=>i.media_type===activeTab); html+=`<h2 class="section-title">Recommended</h2><div class="media-container">`; rec.forEach(i=>html+=cardHTML(i)); html+=`</div><h2 class="section-title">Trending Today</h2><div class="media-container">`; tr.forEach(i=>html+=cardHTML(i)); html+=`</div>`; resultsHTML(html); attachCardListeners(); }
+
+    function cardHTML(item){ if(!item.poster_path) return ''; const poster=`https://image.tmdb.org/t/p/w500${item.poster_path}`; const title=escapeHtml(item.title||item.name); const year=(item.release_date||item.first_air_date||'').slice(0,4); const rating=item.vote_average.toFixed(1); const label=item.media_type==='movie'?'Movie':'TV Show'; return ` <div class="media-card" data-id="${item.id}" data-type="${item.media_type}" data-poster="${poster}"> <div class="media-poster-container"><img src="${poster}" alt="${title}" class="media-poster"></div><div class="media-info"><div class="media-title">${title}</div><div class="media-meta"><span class="year">${year}</span><span class="label">${label}</span><span class="rating">★${rating}</span></div></div></div>`; }
+
+    function attachCardListeners(){ document.querySelectorAll('.media-card').forEach(card=>{ card.addEventListener('mouseenter', onHover); card.addEventListener('mouseleave', onLeave); card.addEventListener('click',()=>showActions(card)); }); }
+
+    async function onHover(e){ if(currentHoverCard) return; const card=e.currentTarget; currentHoverCard=card; const id=card.dataset.id, mt=card.dataset.type, poster=card.dataset.poster; const container=card.querySelector('.media-poster-container'); container.innerHTML='<div class="loading-state"><div>Loading trailer...</div></div>'; try{ if(!trailerCache[id]){ const j=await(await fetch(`${base}${mt}/${id}/videos?api_key=${key}`)).json(); const t=j.results.find(v=>v.type==='Trailer'&&v.site==='YouTube'); trailerCache[id]=t? t.key:null;} if(trailerCache[id]){ const iframe=document.createElement('iframe'); iframe.src=`https://www.youtube-nocookie.com/embed/${trailerCache[id]}?autoplay=1&mute=1&controls=0&modestbranding=1&rel=0&showinfo=0&disablekb=1&fs=0&iv_load_policy=3`; iframe.style.width='100%';iframe.style.height='100%';iframe.style.border='none';iframe.allow='autoplay; encrypted-media';iframe.setAttribute('allowfullscreen',''); container.innerHTML=''; container.appendChild(iframe);} else throw new Error();}catch{ container.innerHTML=`<div class="error-message"><div>Trailer unavailable</div><img src="${poster}" alt="${card.querySelector('.media-title').innerText}" class="media-poster"></div>`;} }
+
+    function onLeave(e){ const card=e.currentTarget; if(card!==currentHoverCard) return; const poster=card.dataset.poster; card.querySelector('.media-poster-container').innerHTML=`<img src="${poster}" alt="${card.querySelector('.media-title').innerText}" class="media-poster">`; currentHoverCard=null; }
+
+    async function search(){ const q=document.getElementById('search-input').value.trim(); if(!q){loadHome();return;} resultsHTML('<div class="loading">Searching…</div>'); try{ let items=[]; if(activeTab==='all'){ const [mr,tr]=await Promise.all([fetch(`${base}search/movie?query=${encodeURIComponent(q)}&api_key=${key}`),fetch(`${base}search/tv?query=${encodeURIComponent(q)}&api_key=${key}`)]); const m=await mr.json(), t=await tr.json(); items=[...m.results.map(i=>({...i,media_type:'movie'})),...t.results.map(i=>({...i,media_type:'tv'}))].sort((a,b)=>b.popularity-a.popularity);} else{ const d=await(await fetch(`${base}search/${activeTab}?query=${encodeURIComponent(q)}&api_key=${key}`)).json(); items=d.results.map(i=>({...i,media_type:activeTab}));} if(!items.length){resultsHTML('<div class="loading">No results</div>');return;} let html=`<button class="back-button" onclick="loadHome()">← Home</button><div class="media-container">`; items.forEach(i=>html+=cardHTML(i)); html+=`</div>`; resultsHTML(html); attachCardListeners();}catch{resultsHTML('<div class="loading">Error fetching results</div>');}}    
+    function showActions(card){ const id=card.dataset.id, mt=card.dataset.type; if(mt==='movie') playEmbed(`https://vidora.su/movie/${id}`); else loadSeasons(id);}    
+    async function loadSeasons(id){ resultsHTML('<div class="loading">Loading seasons…</div>'); try{ const j=await(await fetch(`${base}tv/${id}?api_key=${key}`)).json(); const ss=j.seasons.filter(s=>s.season_number>0&&s.episode_count>0); let html=`<button class="back-button" onclick="loadHome()">← Home</button><div class="action-container"><h2 class="action-title">${escapeHtml(j.name)}</h2>`; ss.forEach(s=>{html+=`<h3 style="text-align:left;margin:20px 0 10px;">Season ${s.season_number}</h3><div style="display:flex;flex-wrap:wrap;gap:10px;justify-content:center;">`; for(let e=1;e<=s.episode_count;e++){html+=`<button class="action-button" onclick="playEmbed('https://vidora.su/tv/${id}/${s.season_number}/${e}')">${e}</button>`;} html+=`</div>`;}); html+=`</div>`; resultsHTML(html);}catch{resultsHTML('<div class="loading">Error loading seasons</div>');}}    
+    function playEmbed(src){ resultsHTML(`<button class="back-button" onclick="loadHome()">← Home</button><div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;"><iframe src="${src}" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;border:none;"></iframe></div>`);}  
+  </script>
+</body>
+</html>

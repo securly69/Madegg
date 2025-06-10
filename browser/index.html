@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..400,0..1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+    <script src="/auth.js"></script>
+    <title>Home</title>
+    <link rel="icon" type="image/x-icon" href="https://t3.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://gointerstellar.app&size=256">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <style>
+        .navbar {
+      list-style-type: none;
+      padding-left: 0;
+      padding-right: 0;
+      padding-top: 5px;
+      margin: 0;
+      direction: ltr;
+      width: 3.5em;
+      height: 100vh;
+      background-color: rgb(22, 22, 22);
+      position: fixed;
+      left: 0;
+      top: 0;
+      text-align: center;
+      box-shadow: 1px 0 1px 0 rgba(66, 66, 66, 0.86);
+      z-index: 2147483640;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .navbar li {
+      width: 100%;
+      padding: 8px 0;
+      display: flex;
+      justify-content: center;
+    }
+
+    .navbar span {
+      padding: 8px !important;
+      display: inline-block;
+      color: #fff;
+      font-size: 24px !important;
+      margin-top: 0px !important;
+      margin-bottom: 0px !important;
+    }
+
+    .navbar hr {
+      width: 60%;
+      height: 1px;
+      background: rgba(160, 160, 160, 0.274);
+      border: none;
+      margin: 8px auto;
+    }
+
+    .navbar span:hover,
+    .navbar div:not(.navHover):hover {
+      background-color: rgba(0, 60, 255, 0.13);
+      border-radius: 7px;
+      transition: 0.12s all ease-in-out;
+      cursor: pointer;
+    }
+
+    .navbar span,
+    .navbar div {
+      transition: 0.12s;
+    }
+    
+    .iframe-container {
+      position: fixed;
+      top: 0;
+      left: 56px;
+      width: calc(100% - 56px);
+      height: 100%;
+    }
+    
+    iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+    </style>
+<body onload="checkIframeStorage()">
+    <ul class="navbar">
+        <li><a href="/"><span class="material-symbols-outlined">cottage</span></a></li>
+        <li><a href="/madflix"><span class="material-symbols-outlined">movie</span></a></li>
+        <li><a href="/browser"><span class="material-symbols-outlined">explore</span></a></li>
+        <li><a href="/madeggai"><span class="material-symbols-outlined">smart_toy</span></a></li>
+        <li><hr></li>
+        <li><a href="/settings"><span class="material-symbols-outlined">settings</span></a></li>
+      </ul>
+    
+    <iframe id="myIframe" style="display: none" src="http://localhost:8080/browser"></iframe>
+    <div style="padding-left: 56px;">IF YOU CAN SEE THIS GO TO SETTINGS AND CHOOSE A UV SERVER!</div>
+    <script>
+        function checkIframeStorage() {
+            const iframe = document.getElementById('myIframe');
+
+            try {
+                const iframeWindow = iframe.contentWindow;
+                const uvtype = iframeWindow.localStorage.getItem('uvtype');
+                
+                if (uvtype) {
+                    handleUvType(uvtype);
+                    return;
+                } else {
+                    console.log("Key 'uvtype' not found in localStorage.");
+                    return;
+                }
+            } catch (error) {
+                console.log("Direct access blocked (cross-origin). Trying postMessage...");
+            }
+
+            iframe.contentWindow.postMessage(
+                { action: "getLocalStorage", key: "uvtype" },
+                "http://localhost:8080"
+            );
+
+            window.addEventListener("message", (event) => {
+                if (event.origin !== "http://localhost:8080") return;
+
+                if (event.data?.key === "uvtype") {
+                    handleUvType(event.data.value);
+                }
+            }, { once: true });
+        }
+
+        function handleUvType(uvtype) {
+            console.log("uvtype =", uvtype);
+            
+            let newIframeUrl;
+            if (uvtype === "uv1") {
+                newIframeUrl = "http://localhost:8080/browser";
+            } else if (uvtype === "uv2") {
+                newIframeUrl = "https://asphalt967.vercel.app/uv2";
+            } else {
+                console.log("Unknown uvtype:", uvtype);
+                return;
+            }
+            
+            const newIframe = document.createElement("iframe");
+            newIframe.src = newIframeUrl;
+            newIframe.className = "iframe-container";
+            
+            document.body.appendChild(newIframe);
+        }
+    </script>
+</body>
+</html>

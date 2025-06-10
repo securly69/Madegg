@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="stylesheet" href="./assets/style.css">
+  <script src="./uv/uv.bundle.js" defer></script>
+  <script src="./uv/uv.config.js" defer></script>
+  <script src="./assets/script.js" defer></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-..." crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+  <div id="proxy-div">
+    <div id="proxy-nav-bar">
+      <div id="tabBarTabs"></div>
+      <div id="newTab" onclick="newTab()">
+        <i class="fa-solid fa-circle-plus fa-lg"></i>
+      </div>
+    </div>
+
+    <div id="proxy-button-row">
+      <div class="proxy-nav-bar-item" style="cursor: pointer; width: 24px;" onclick="goBack()">
+        <i class="fas fa-arrow-left fa-lg"></i>
+      </div>
+      <div class="proxy-nav-bar-item" style="cursor: pointer; width: 24px;" onclick="goForward()">
+        <i class="fas fa-arrow-right fa-lg"></i>
+      </div>
+      <div class="proxy-nav-bar-item" style="cursor: pointer; width: 24px;" onclick="reloadPage()">
+        <i class="fas fa-redo fa-lg"></i>
+      </div>
+      <div class="proxy-nav-bar-item" style="cursor: pointer;width: 24px;" onclick="goHome()">
+        <i class="fas fa-home fa-lg"></i>
+      </div>
+      <div style="padding: 0;">
+        <form id="nav-bar-form">
+          <input id="nav-bar-address" type="text" placeholder="Search the web" />
+          <input id="uv-search-engine" value="https://www.google.com/search?q=%s" type="hidden" />
+          <input id="uv-start-page" value="https://google.com" type="hidden">
+        </form>
+      </div>
+      <div class="proxy-nav-bar-item" style="cursor: pointer; padding: 8px;" onclick="windowPopout();">
+        <i class="fa-solid fa-up-right-from-square fa-lg"></i>
+      </div>
+      <div class="proxy-nav-bar-item" style="cursor: pointer; padding: 8px;" onclick="proxyFullscreen();">
+        <i class="fas fa-expand fa-lg"></i>
+      </div>
+    </div>
+
+    <span id="frames"></span>
+  </div>
+</body>
+</html>
